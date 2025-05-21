@@ -18,11 +18,6 @@
 
 ---
 
-## :pushpin: Project Name
-**ShadowSwap**
-
----
-
 ## :video_game: Controls
 
 | Key | Action |
@@ -42,12 +37,12 @@
 
 ---
 
-## :gift: Bonus Features
 
-- Multi-level system (`levels/1.json`, `2.json`, etc.)
-- Win & Death transitions (`win.json`, `lose.json`)
-- Support for animated `.gif` or `.png` sprite sheets
-- (Planned) Time-based scoring, star ratings, and speedrun mode
+## 🖼️ Screenshot
+
+<p align="center">
+  <img src="assets/images/screenshot.png" alt="ShadowSwap Gameplay" width="600"/>
+</p>
 
 ---
 
