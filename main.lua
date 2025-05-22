@@ -158,74 +158,94 @@ function love.update(dt)
 end
 
 function love.draw()
+    local BASE_WIDTH = 800
+    local BASE_HEIGHT = 600
+    local scaleX = love.graphics.getWidth() / BASE_WIDTH
+    local scaleY = love.graphics.getHeight() / BASE_HEIGHT
+    local scale = math.min(scaleX, scaleY)
+
+    love.graphics.push()
+    love.graphics.scale(scale)
+
+    -- SETTINGS MENU
     if settingMenuActive then
         love.graphics.setFont(FontLarge)
-        love.graphics.printf("Settings", 0, 80, love.graphics.getWidth(), "center")
+        love.graphics.printf("Settings", 0, 80, BASE_WIDTH, "center")
 
         love.graphics.setFont(FontSize)
         for i, button in ipairs(settingsButtons) do
-            local x = love.graphics.getWidth() / 2 - 100
+            local x = BASE_WIDTH / 2 - 100
             local y = 200 + (i - 1) * (BUTTON_H + 10)
             love.graphics.setColor(0.2, 0.2, 0.8)
             love.graphics.rectangle("fill", x, y, 200, BUTTON_H, 12)
             love.graphics.setColor(1, 1, 1)
             love.graphics.printf(button.getText(), x, y + 15, 200, "center")
         end
-        return -- ❗ Menüyü çizdikten sonra çık
+
+        love.graphics.pop()
+        return
     end
+
+    -- MAIN MENU
     if levelIndex == 0 then
         level.draw()
         level.drawTopLayer()
 
         love.graphics.setFont(FontLarge)
         love.graphics.setColor(1, 1, 1)
-        love.graphics.printf("ShadowSwap", 0, 80, love.graphics.getWidth(), "center")
+        love.graphics.printf("ShadowSwap", 0, 80, BASE_WIDTH, "center")
 
         love.graphics.setFont(FontSize)
         for i, button in ipairs(menuButtons) do
-            local x = love.graphics.getWidth() / 2 - 100
+            local x = BASE_WIDTH / 2 - 100
             local y = 200 + (i - 1) * (BUTTON_H + 10)
             love.graphics.setColor(0.2, 0.2, 0.8)
             love.graphics.rectangle("fill", x, y, 200, BUTTON_H, 12)
             love.graphics.setColor(1, 1, 1)
             love.graphics.printf(button.getText(), x, y + 15, 200, "center")
         end
+
+        love.graphics.pop()
         return
     end
 
+    -- TRANSITION
     if levelIndex == "1to2" or levelIndex == "2to3" then
         level.draw()
         level.drawTopLayer()
         love.graphics.setFont(FontSize)
         love.graphics.setColor(1, 1, 1)
-        love.graphics.printf("Press Enter to Continue...", 0, love.graphics.getHeight() / 2, love.graphics.getWidth(), "center")
+        love.graphics.printf("Press Enter to Continue...", 0, BASE_HEIGHT / 2, BASE_WIDTH, "center")
+        love.graphics.pop()
         return
     end
 
+    -- GAMEPLAY
     if levelIndex ~= "win" and levelIndex ~= "lose" then
         level.draw()
         whitePlayer.draw()
         blackPlayer.draw()
         level.drawTopLayer()
     else
+        -- WIN or LOSE
         level.draw()
         level.drawTopLayer()
         love.graphics.setFont(FontLarge)
 
         if levelIndex == "win" then
             love.graphics.setColor(0, 1, 0)
-            love.graphics.printf("YOU WIN!", 0, love.graphics.getHeight() / 2 - 40, love.graphics.getWidth(), "center")
-            love.graphics.setFont(FontSize)
-            love.graphics.setColor(1, 1, 1)
-            love.graphics.printf("Press Enter to return to menu", 0, love.graphics.getHeight() / 2 + 20, love.graphics.getWidth(), "center")
+            love.graphics.printf("YOU WIN!", 0, BASE_HEIGHT / 2 - 40, BASE_WIDTH, "center")
         elseif levelIndex == "lose" then
             love.graphics.setColor(1, 0, 0)
-            love.graphics.printf("YOU DIED!", 0, love.graphics.getHeight() / 2 - 40, love.graphics.getWidth(), "center")
-            love.graphics.setFont(FontSize)
-            love.graphics.setColor(1, 1, 1)
-            love.graphics.printf("Press Enter to return to menu", 0, love.graphics.getHeight() / 2 + 20, love.graphics.getWidth(), "center")
+            love.graphics.printf("YOU DIED!", 0, BASE_HEIGHT / 2 - 40, BASE_WIDTH, "center")
         end
+
+        love.graphics.setFont(FontSize)
+        love.graphics.setColor(1, 1, 1)
+        love.graphics.printf("Press Enter to return to menu", 0, BASE_HEIGHT / 2 + 20, BASE_WIDTH, "center")
     end
+
+    love.graphics.pop()
 end
 
 function love.mousepressed(x, y, button)
