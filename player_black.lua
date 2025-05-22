@@ -37,8 +37,12 @@ function black.update(dt)
 
             local walkable = {
                 [3] = true, -- Goal
-                [8] = true, -- White Start
-                [9] = true, -- Black Start
+                [4] = true, -- Spike
+                [5] = true, -- SpikeLeft
+                [6] = true, -- SpikeRight
+                [7] = true, -- SpikeReversed
+                [8] = true, -- White Player Start
+                [9] = true,   -- Black Player Start
                 [10] = true  -- Air
             }
 
