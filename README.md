@@ -2,9 +2,9 @@
 
 > A dual-character mind-bending mini puzzle game made with Lua + LOVE2D.
 
-[![GitHub release](https://img.shields.io/github/release/KKNecmi/ThirdPerson-Revamped?include_prereleases=&sort=semver&color=blue)](https://github.com/KKNecmi/ThirdPerson-Revamped/releases/)
+[![GitHub release](https://img.shields.io/github/release/KKNecmi/ShadowSwap?include_prereleases=&sort=semver&color=blue)](https://github.com/KKNecmi/ShadowSwap/releases/)
 [![License](https://img.shields.io/badge/License-GPLv3-blue)](#license)
-[![issues - ThirdPerson-Revamped](https://img.shields.io/github/issues/KKNecmi/ThirdPerson-Revamped?color=darkgreen)](https://github.com/KKNecmi/ThirdPerson-Revamped/issues)
+[![issues - ShadowSwap](https://img.shields.io/github/issues/KKNecmi/ShadowSwap?color=darkgreen)](https://github.com/KKNecmi/ShadowSwap/issues)
 
 ---
 

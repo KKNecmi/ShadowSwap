@@ -19,7 +19,12 @@ tileQuads = {
     [7] = love.graphics.newQuad(96, 96, tileSize, tileSize, tileset:getDimensions()), -- SpikeReversed
     [8] = love.graphics.newQuad(128, 0, tileSize, tileSize, tileset:getDimensions()), -- White Player Start
     [9] = love.graphics.newQuad(128, 32, tileSize, tileSize, tileset:getDimensions()), -- Black Player Start
-    [10] = love.graphics.newQuad(160, 0, tileSize, tileSize, tileset:getDimensions())  -- Air
+    [10] = love.graphics.newQuad(160, 0, tileSize, tileSize, tileset:getDimensions()),  -- Air
+    [11] = love.graphics.newQuad(160, 0, tileSize, tileSize, tileset:getDimensions()),  -- Fan
+    [12] = love.graphics.newQuad(160, 0, tileSize, tileSize, tileset:getDimensions()),  -- FanLeft
+    [13] = love.graphics.newQuad(160, 0, tileSize, tileSize, tileset:getDimensions()),  -- FanRight
+    [14] = love.graphics.newQuad(160, 0, tileSize, tileSize, tileset:getDimensions()),  -- FanReversed
+    [15] = love.graphics.newQuad(160, 0, tileSize, tileSize, tileset:getDimensions())  -- FanAir
 }
 
 function level.load(path)
